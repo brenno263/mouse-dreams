@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/USS/MainMenu.uss?fileID=7433441132597879392&amp;guid=ade09c79511aa4842bc5454f20c4c7ab&amp;type=3#MainMenu" />
+    <ui:VisualElement name="MainMenuBackground" style="height: 447px; background-color: rgba(161, 61, 52, 255);">
+        <ui:Label text="Mouse Dreams" display-tooltip-when-elided="true" name="MainMenuLabel" focusable="false" style="height: 99px; align-items: auto; -unity-text-align: upper-center; font-size: 85%;" />
+        <ui:Button text="Play" display-tooltip-when-elided="true" name="Play" style="-unity-text-align: middle-center; width: 0; height: 10%;" />
+        <ui:Button text="Credits" display-tooltip-when-elided="true" name="Credits" />
+        <ui:Button text="Close" display-tooltip-when-elided="true" name="Close" />
+    </ui:VisualElement>
+</ui:UXML>
