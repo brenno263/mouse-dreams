@@ -11,11 +11,27 @@ public class BaseButton : MonoBehaviour
 
     public int n;
 
-    public void OnButtonClick()
+    public void ToExplanation()
+
+    {
+
+        SceneManager.LoadScene(2);
+
+    }
+
+    public void ToGame()
 
     {
 
         SceneManager.LoadScene(0);
+
+    }
+
+    public void ToMainMenu()
+
+    {
+
+        SceneManager.LoadScene(1);
 
     }
 
