@@ -46,6 +46,9 @@ public class PlayerData : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += (scene, mode) =>
         {
+            onHealthChange = null;
+            onMoneyChange = null;
+
             if (scene.name != "Game" && scene.name != "Shop")
             {
                 Destroy(gameObject);
