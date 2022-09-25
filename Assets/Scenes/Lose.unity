@@ -600,8 +600,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You gave into your cheese addiction and lost your chance to be healthy.
-    Try again?
+  m_text: Oh rats! It appears that Shawn has consumed far too much cheese for his
+    smol body to handle. Many painful trips to the bathroom await him :(
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

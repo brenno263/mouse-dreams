@@ -28,7 +28,11 @@ public class Mouse : MonoBehaviour
     {
         if (col.tag == "Cheese")
         {
+            
             playerData.Health--;
+           // Debug.Log(playerData.baseMaxHealth);
+            Debug.Log(playerData.Health);
+
         }
     }
 

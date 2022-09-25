@@ -20,6 +20,7 @@ public class PlayerData : MonoBehaviour
     public OnHealthChange onHealthChange;
     public OnMoneyChange onMoneyChange;
     public OnUpgradesChange onUpgradesChange;
+    private int _health;
 
     public int Health
     {
@@ -31,11 +32,12 @@ public class PlayerData : MonoBehaviour
             _health = value;
             if (_health <= 0)
             {
+                gameManager = null;
                 SceneManager.LoadScene("Lose");
             }
         }
     }
-    private int _health = 0;
+    
 
     public int Money
     {
