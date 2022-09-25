@@ -23,7 +23,7 @@ public class BaseButton : MonoBehaviour
 
     {
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
 
     }
 

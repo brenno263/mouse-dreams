@@ -26,6 +26,7 @@ public class Money : MonoBehaviour
 
     public void setMoney(int startMoney, int newMoney)
     {
+         
         if(animation != null)
             StopCoroutine(animation);
         animation = StartCoroutine(animateSetMoney(startMoney, newMoney));
