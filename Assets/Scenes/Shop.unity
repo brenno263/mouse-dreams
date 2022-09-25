@@ -1922,6 +1922,19 @@ MonoBehaviour:
   GameManager: {fileID: 0}
   Player: {fileID: 0}
   Damage: {fileID: 1577648882}
+  texts:
+  - type: 0
+    text: {fileID: 882848351}
+  - type: 1
+    text: {fileID: 222577386}
+  - type: 2
+    text: {fileID: 205968450}
+  - type: 3
+    text: {fileID: 1186117024}
+  - type: 4
+    text: {fileID: 1256904779}
+  - type: 5
+    text: {fileID: 1486046516}
 --- !u!1 &1135818770
 GameObject:
   m_ObjectHideFlags: 0

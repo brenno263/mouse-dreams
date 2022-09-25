@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public delegate void OnHealthChange(int _health, int _maxHealth);
 public delegate void OnMoneyChange(int _startMoney, int _newMoney);
 
+public delegate void OnUpgradesChange(List<SerializableMap<UpgradeType, Upgrade>.Pair> upgrades);
+
 public class PlayerData : MonoBehaviour
 {
     public int baseMaxHealth;
@@ -15,6 +17,7 @@ public class PlayerData : MonoBehaviour
 
     public OnHealthChange onHealthChange;
     public OnMoneyChange onMoneyChange;
+    public OnUpgradesChange onUpgradesChange;
 
     public int Health
     {
@@ -24,6 +27,10 @@ public class PlayerData : MonoBehaviour
             if (onHealthChange != null)
                 onHealthChange(value, baseMaxHealth + getUpgradeLevel(UpgradeType.MaxHealth));
             _health = value;
+            if (_health <= 0)
+            {
+                SceneManager.LoadScene("Lose");
+            }
         }
     }
     private int _health = 0;
@@ -48,6 +55,7 @@ public class PlayerData : MonoBehaviour
         {
             onHealthChange = null;
             onMoneyChange = null;
+            onUpgradesChange = null;
 
             if (scene.name != "Game" && scene.name != "Shop")
             {

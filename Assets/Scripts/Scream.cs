@@ -22,7 +22,7 @@ public class Scream : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(onHit != null)
+        if(col.tag == "Cheese" && onHit != null)
             onHit.Invoke();
     }
 

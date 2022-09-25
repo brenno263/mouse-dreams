@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,28 +10,29 @@ public class ShopUpgrades : MonoBehaviour
     public GameObject GameManager;
     public PlayerData Player;
     public GameObject Damage;
+
+    public List<ShopTextPair> texts;
+
+    [Serializable]
+    public class ShopTextPair
+    {
+        public UpgradeType type;
+        public TextMeshProUGUI text;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
         GameManager = GameObject.Find("Game Manager");
         Player = GameManager.GetComponent<PlayerData>();
-        //Player.Money = 10000;
-
-        
-
-
-        // Damage.GetComponent<UnityEngine.UI.Image>().= "beans";
-        
-        Debug.Log("l");
-
-        int x = 1;
-        x += 1;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Player.onUpgradesChange += (upgrades =>
+        {
+            foreach (var pair in texts)
+            {
+                int upgradeLevel = Player.getUpgradeLevel(pair.type);
+                pair.text.text = pair.type.ToString() + " " + upgradeLevel + "\n$" + 100 * upgradeLevel;
+            }
+        });
     }
 
     public bool tryPayment(UpgradeType type)

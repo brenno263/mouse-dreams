@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -21,6 +22,11 @@ public class SerializableMap<K,V>
     public V get(K key)
     {
         return _contents.Find(pair => pair.key.Equals(key)).value;
+    }
+
+    public List<Pair> getList()
+    {
+        return new List<Pair>(_contents);
     }
 
     [Serializable]
