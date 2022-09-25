@@ -505,6 +505,7 @@ GameObject:
   - component: {fileID: 1258364007}
   - component: {fileID: 1258364009}
   - component: {fileID: 1258364008}
+  - component: {fileID: 1258364010}
   m_Layer: 5
   m_Name: MoneyText
   m_TagString: Untagged
@@ -629,6 +630,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258364006}
   m_CullTransparentMesh: 1
+--- !u!114 &1258364010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258364006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49d579a5bc685b46af359131316599f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyObject: {fileID: 1258364006}
+  CurrentMoney: 0
 --- !u!1 &1338878243
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +868,7 @@ GameObject:
   - component: {fileID: 1912203993}
   - component: {fileID: 1912203995}
   - component: {fileID: 1912203994}
+  - component: {fileID: 1912203996}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -900,7 +916,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 7482667652216324306, guid: 67caee1c592b9d24598be3752ab07e3d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -918,6 +934,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912203992}
   m_CullTransparentMesh: 1
+--- !u!114 &1912203996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912203992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e6cf11d453f66429f5ee2c205ed3fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 1912203994}
+  bar: {fileID: 1912203992}
 --- !u!1 &2047717464
 GameObject:
   m_ObjectHideFlags: 0
