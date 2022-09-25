@@ -12,6 +12,8 @@ public delegate void OnUpgradesChange(List<SerializableMap<UpgradeType, Upgrade>
 
 public class PlayerData : MonoBehaviour
 {
+    public static GameObject gameManager;
+    
     public int baseMaxHealth;
     public SerializableMap<UpgradeType, Upgrade> Upgrades;
 
@@ -50,6 +52,14 @@ public class PlayerData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (gameManager != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        gameManager = gameObject;
+        
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += (scene, mode) =>
         {

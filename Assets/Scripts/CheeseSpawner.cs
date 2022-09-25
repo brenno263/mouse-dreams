@@ -41,6 +41,7 @@ public class CheeseSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         int aliveCheeseCount = 0;
+        bool failedToFinish = true;
         foreach (MicroWave mw in w.microWaves)
         {
             while (mw.hasNext())
@@ -69,6 +70,7 @@ public class CheeseSpawner : MonoBehaviour
                     aliveCheeseCount--;
                     if (aliveCheeseCount == 0)
                     {
+                        failedToFinish = false;
                         goToShop();
                     }
                 };
@@ -79,7 +81,7 @@ public class CheeseSpawner : MonoBehaviour
         }
 
         yield return new WaitForSeconds(10f);
-        goToShop();
+        if(failedToFinish) goToShop();
     }
     private void goToShop()
     {
