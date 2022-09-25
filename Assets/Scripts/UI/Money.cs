@@ -9,18 +9,35 @@ using UnityEngine.UIElements;
 
 public class Money : MonoBehaviour
 {
+    public float animTime;
+    public TMPro.TextMeshProUGUI text;
 
-    public GameObject MoneyObject;
-    public float CurrentMoney = 0f;
+    private Coroutine animation;
 
     void Start()
     {
+        text = GetComponent<TMPro.TextMeshProUGUI>();
+        GameObject gameManager = GameObject.Find("Game Manager");
+        PlayerData playerData = gameManager.GetComponent<PlayerData>();
+        playerData.onMoneyChange += setMoney;
+
         //MoneyObject.GetComponent<TMPro.TextMeshProUGUI>().text = "$" + CurrentMoney.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void setMoney(int startMoney, int newMoney)
     {
-        MoneyObject.GetComponent<TMPro.TextMeshProUGUI>().text = "$" + CurrentMoney.ToString();
+        if(animation != null)
+            StopCoroutine(animation);
+        animation = StartCoroutine(animateSetMoney(startMoney, newMoney));
+    }
+
+    private IEnumerator animateSetMoney(int startMoney, int newMoney)
+    {
+        float t = 0;
+        while (t < animTime)
+        { 
+            text.text = "$" + Mathf.Lerp(startMoney, newMoney, t / animTime);
+            yield return null;
+        }
     }
 }

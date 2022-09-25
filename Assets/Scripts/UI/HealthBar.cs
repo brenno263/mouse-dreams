@@ -15,16 +15,26 @@ public class HealthBar : MonoBehaviour
         health = bar.GetComponent<Image>();
         health.type = Image.Type.Filled;
         health.fillMethod = Image.FillMethod.Horizontal;
-        health.fillOrigin = 0;
-        //health.fillOrigin = "Left";
-        //health.fillOrigin = 
-        //Debug.Log(health.type);
-        health.fillAmount = .7f;
+        GameObject gameManager = GameObject.Find("Game Manager");
+        PlayerData playerData = gameManager.GetComponent<PlayerData>();
+        playerData.onHealthChange += setHealthBar;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void setHealthBar(int healthNum, int max)
     {
-        
+        StartCoroutine(animateHealthBar(healthNum, max));
+    }
+
+    private IEnumerator animateHealthBar(int healthNum, int max)
+    {
+        float startValue = health.fillAmount;
+        float targetValue = (float)healthNum / max;
+        float t = 0;
+        while (t < 1)
+        {
+            t += Time.deltaTime * 4;
+            health.fillAmount = Mathf.Lerp(startValue, targetValue, t);
+            yield return null;
+        }
     }
 }

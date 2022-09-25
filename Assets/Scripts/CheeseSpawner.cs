@@ -26,19 +26,15 @@ public class CheeseSpawner : MonoBehaviour
         });
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void nextWave()
     {
-        Wave w = waveData[currentWave];
+        Wave w = waveData[currentWave++];
         StartCoroutine(runWave(w));
     }
 
     public IEnumerator runWave(Wave w)
     {
+        yield return new WaitForSeconds(2);
         int aliveCheeseCount = 0;
         foreach (MicroWave mw in w.microWaves)
         {
@@ -80,11 +76,10 @@ public class CheeseSpawner : MonoBehaviour
         yield return new WaitForSeconds(10f);
         goToShop();
     }
-
     private void goToShop()
     {
         if (SceneManager.GetActiveScene().name != "Shop") ;
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Shop");
     }
 
     public enum CheeseType

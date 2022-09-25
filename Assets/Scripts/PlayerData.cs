@@ -1,17 +1,44 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public delegate void OnHealthChange(int _health, int _maxHealth);
+public delegate void OnMoneyChange(int _startMoney, int _newMoney);
+
 public class PlayerData : MonoBehaviour
 {
-    public float maxHealth;
+    public int baseMaxHealth;
     public SerializableMap<UpgradeType, Upgrade> Upgrades;
-    
-    [Header("Set Dynamically")]
-    public float health;
-    public float money;
+
+    public OnHealthChange onHealthChange;
+    public OnMoneyChange onMoneyChange;
+
+    public int Health
+    {
+        get { return _health; }
+        set
+        {
+            if (onHealthChange != null)
+                onHealthChange(value, baseMaxHealth + getUpgradeLevel(UpgradeType.MaxHealth));
+            _health = value;
+        }
+    }
+    private int _health = 0;
+
+    public int Money
+    {
+        get { return _money; }
+        set
+        {
+            if (onMoneyChange != null)
+                onMoneyChange(_money, value);
+            _money = value;
+        }
+    }
+    private int _money = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +52,8 @@ public class PlayerData : MonoBehaviour
             }
         };
 
-        health = maxHealth;
-        money = 0;
+        Health = baseMaxHealth;
+        Money = 0;
     }
 
     public int getUpgradeLevel(UpgradeType type)
