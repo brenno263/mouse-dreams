@@ -50,7 +50,7 @@ public class PlayerData : MonoBehaviour
     private int _money;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (gameManager != null)
         {
@@ -80,7 +80,7 @@ public class PlayerData : MonoBehaviour
     public int getUpgradeLevel(UpgradeType type)
     {
         Upgrade u = Upgrades.get(type);
-        return u.currentLevel;
+        return u.getCurrentLevel();
     }
 
     public int getUpgradeCost(UpgradeType type)
@@ -93,7 +93,7 @@ public class PlayerData : MonoBehaviour
         Upgrade u = Upgrades.get(type);
         bool success = u.tryUpgrade();
         if (success) onUpgradesChange(Upgrades.getList());
-        return u.tryUpgrade();
+        return success;
     }
 
     public bool tryHeal()

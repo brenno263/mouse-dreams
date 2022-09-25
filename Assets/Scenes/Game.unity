@@ -1643,7 +1643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2119282573481819160, guid: a16b192a63da3ff428d2e2cc782a00d5, type: 3}
       propertyPath: baseRotationSpeed
-      value: 360
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2119282573481819160, guid: a16b192a63da3ff428d2e2cc782a00d5, type: 3}
       propertyPath: screams.Array.size
@@ -1651,7 +1651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2119282573481819160, guid: a16b192a63da3ff428d2e2cc782a00d5, type: 3}
       propertyPath: baseProjectileRange
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2119282573481819160, guid: a16b192a63da3ff428d2e2cc782a00d5, type: 3}
       propertyPath: baseProjectileSpeed

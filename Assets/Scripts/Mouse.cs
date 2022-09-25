@@ -6,13 +6,11 @@ using Random = UnityEngine.Random;
 
 public class Mouse : MonoBehaviour
 {
-
     public float baseRotationSpeed;
     public float baseFireRate;
     public float baseProjectileSpeed;
     public float baseProjectileRange;
     public float baseProjectileWidth;
-    public int baseDamage;
     public int baseProfit;
 
     public GameObject screamObject;
@@ -23,6 +21,12 @@ public class Mouse : MonoBehaviour
     public AudioSource audioSource;
 
     private float _lastProjectileTime;
+
+    private void Start()
+    {
+        gameManager = GameObject.Find("Game Manager");
+        playerData = gameManager.GetComponent<PlayerData>();
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -40,7 +44,11 @@ public class Mouse : MonoBehaviour
         float rotateAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, rotateAngle - 90));
         transform.rotation =
-            Quaternion.RotateTowards(transform.rotation, targetRotation, baseRotationSpeed * Time.deltaTime);
+            Quaternion.RotateTowards(
+                transform.rotation,
+                targetRotation,
+                (baseRotationSpeed + playerData.getUpgradeLevel(UpgradeType.RotSpeed) * 30) * Time.deltaTime
+            );
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -54,9 +62,9 @@ public class Mouse : MonoBehaviour
         float cooldownTime = 1 / (baseFireRate + playerData.getUpgradeLevel(UpgradeType.FireRate) * 0.5f);
         if (timeElapsed < cooldownTime) return;
         _lastProjectileTime = Time.time;
-        
+
         screamSound();
-        
+
         GameObject screamGo = Instantiate(screamObject, transform.position, transform.rotation);
         Scream scream = screamGo.GetComponent<Scream>();
         Rigidbody2D sRigid = screamGo.GetComponent<Rigidbody2D>();
@@ -64,13 +72,13 @@ public class Mouse : MonoBehaviour
 
         sRigid.velocity = sTrans.up * baseProjectileSpeed;
         Vector3 scale = sTrans.localScale;
-        scale.x = scale.x * (1 + playerData.getUpgradeLevel(UpgradeType.Width) * 0.2f);
+        scale.x *= (baseProjectileWidth + playerData.getUpgradeLevel(UpgradeType.Width) * 0.2f);
         sTrans.localScale = scale;
 
-        scream.maxDistance = baseProjectileRange + playerData.getUpgradeLevel(UpgradeType.Range) * 2;
+        scream.maxDistance = baseProjectileRange + playerData.getUpgradeLevel(UpgradeType.Range) * 0.6f;
         scream.onHit = () =>
         {
-            int profit = baseProfit + (int)playerData.getUpgradeLevel(UpgradeType.Profit) * 10;
+            int profit = baseProfit + (int)playerData.getUpgradeLevel(UpgradeType.Profit) * 8;
             playerData.Money += profit;
         };
     }

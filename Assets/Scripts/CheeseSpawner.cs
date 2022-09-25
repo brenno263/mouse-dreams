@@ -62,7 +62,7 @@ public class CheeseSpawner : MonoBehaviour
                 }
 
                 Vector3 spawnPos = Random.insideUnitCircle.normalized * spawnRadius;
-                GameObject instantiatedGo = Instantiate(go, spawnPos, go.transform.rotation);
+                GameObject instantiatedGo = Instantiate(go, spawnPos, Quaternion.Euler(0, 0, Random.Range(0f, 360f)));
                 Cheese c = instantiatedGo.GetComponent<Cheese>();
                 aliveCheeseCount++;
                 c.onDeath = () =>

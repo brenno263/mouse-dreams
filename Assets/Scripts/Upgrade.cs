@@ -8,7 +8,12 @@ public class Upgrade
 {
     public int maxLevel;
     [NonSerialized]
-    public int currentLevel;
+    private int currentLevel;
+
+    public int getCurrentLevel()
+    {
+        return currentLevel;
+    }
 
     public Upgrade()
     {
@@ -27,7 +32,7 @@ public enum UpgradeType
 {
     Range,
     Width,
-    Damage,
+    RotSpeed,
     FireRate,
     Profit,
     MaxHealth,

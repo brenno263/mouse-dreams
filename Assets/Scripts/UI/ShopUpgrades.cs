@@ -36,10 +36,15 @@ public class ShopUpgrades : MonoBehaviour
         Player.onUpgradesChange(Player.Upgrades.getList());
     }
 
+    public bool canPayFor(UpgradeType type)
+    {
+        return Player.getUpgradeCost(type) <= Player.Money;
+    }
+    
     public bool tryPayment(UpgradeType type)
     {
         int cost = Player.getUpgradeCost(type);
-        if (cost <= Player.Money)
+        if (canPayFor(type) && Player.tryUpgrade(type))
         {
             Player.Money -= cost;
             return true;
@@ -47,37 +52,34 @@ public class ShopUpgrades : MonoBehaviour
         return false;
     }
 
-    public void UpgradeDamage()
+    public void UpgradeRotSpeed()
     {
-        if(tryPayment(UpgradeType.Damage)) Player.tryUpgrade(UpgradeType.Damage);
+        tryPayment(UpgradeType.RotSpeed);
     }
 
     public void UpgradeWidth()
     {
-        if(tryPayment(UpgradeType.Width)) Player.tryUpgrade(UpgradeType.Width);
-
+        tryPayment(UpgradeType.Width);
     }
 
     public void UpgradeFirerate()
     {
-        if(tryPayment(UpgradeType.FireRate)) Player.tryUpgrade(UpgradeType.FireRate);
-
+        tryPayment(UpgradeType.FireRate);
     }
 
     public void UpgradeProfit()
     {
-        if(tryPayment(UpgradeType.Profit)) Player.tryUpgrade(UpgradeType.Profit);
-
+        tryPayment(UpgradeType.Profit);
     }
 
     public void UpgradeRange()
     {
-        if(tryPayment(UpgradeType.Range)) Player.tryUpgrade(UpgradeType.Range);
+        tryPayment(UpgradeType.Range);
     }
 
     public void UpgradeMaxhealth()
     {
-        if(tryPayment(UpgradeType.MaxHealth)) Player.tryUpgrade(UpgradeType.MaxHealth);
+        tryPayment(UpgradeType.MaxHealth);
     }
 
     public void Heal()
