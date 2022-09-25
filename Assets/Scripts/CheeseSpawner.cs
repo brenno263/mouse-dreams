@@ -28,6 +28,11 @@ public class CheeseSpawner : MonoBehaviour
 
     public void nextWave()
     {
+        if (currentWave == waveData.Count - 1)
+        {
+            SceneManager.LoadScene("Win");
+            return;
+        }
         Wave w = waveData[currentWave++];
         StartCoroutine(runWave(w));
     }

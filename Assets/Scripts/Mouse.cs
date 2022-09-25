@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Mouse : MonoBehaviour
 {
@@ -18,14 +19,15 @@ public class Mouse : MonoBehaviour
     public GameObject gameManager;
     public PlayerData playerData;
 
+    public List<AudioClip> screams;
+    public AudioSource audioSource;
+
     private float _lastProjectileTime;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("coll");
         if (col.tag == "Cheese")
         {
-            Debug.Log("coll cheese");
             playerData.Health--;
         }
     }
@@ -53,6 +55,8 @@ public class Mouse : MonoBehaviour
         if (timeElapsed < cooldownTime) return;
         _lastProjectileTime = Time.time;
         
+        screamSound();
+        
         GameObject screamGo = Instantiate(screamObject, transform.position, transform.rotation);
         Scream scream = screamGo.GetComponent<Scream>();
         Rigidbody2D sRigid = screamGo.GetComponent<Rigidbody2D>();
@@ -69,5 +73,12 @@ public class Mouse : MonoBehaviour
             int profit = baseProfit + (int)playerData.getUpgradeLevel(UpgradeType.Profit) * 5;
             playerData.Money += profit;
         };
+    }
+
+    void screamSound()
+    {
+        AudioClip scream = screams[Random.Range(0, screams.Count)];
+        audioSource.clip = scream;
+        audioSource.Play();
     }
 }
