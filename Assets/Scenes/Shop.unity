@@ -340,7 +340,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 37393821}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1074814476}
+        m_TargetAssemblyTypeName: ShopUpgrades, Assembly-CSharp
+        m_MethodName: UpgradeMaxhealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &37393821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,7 +474,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 80403171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1074814476}
+        m_TargetAssemblyTypeName: ShopUpgrades, Assembly-CSharp
+        m_MethodName: UpgradeProfit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &80403171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,7 +1097,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 247534356}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1074814476}
+        m_TargetAssemblyTypeName: ShopUpgrades, Assembly-CSharp
+        m_MethodName: UpgradeWidth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &247534356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,7 +1231,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 275938970}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1074814476}
+        m_TargetAssemblyTypeName: ShopUpgrades, Assembly-CSharp
+        m_MethodName: UpgradeFirerate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &275938970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1520,7 +1568,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 571979953}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1074814476}
+        m_TargetAssemblyTypeName: ShopUpgrades, Assembly-CSharp
+        m_MethodName: UpgradeRange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &571979953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1817,6 +1877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1074814475}
   - component: {fileID: 1074814474}
+  - component: {fileID: 1074814476}
   m_Layer: 0
   m_Name: ButtonObject
   m_TagString: Untagged
@@ -1852,6 +1913,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074814476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074814473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29a03b7d8b46ac4bb4bec9163425d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!1 &1135818770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,7 +2625,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1493364116}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1074814476}
+        m_TargetAssemblyTypeName: ShopUpgrades, Assembly-CSharp
+        m_MethodName: Heal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1493364116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2672,7 +2759,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1577648885}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1074814476}
+        m_TargetAssemblyTypeName: ShopUpgrades, Assembly-CSharp
+        m_MethodName: UpgradeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1577648885
 MonoBehaviour:
   m_ObjectHideFlags: 0

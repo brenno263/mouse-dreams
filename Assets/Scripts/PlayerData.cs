@@ -11,7 +11,7 @@ public class PlayerData : MonoBehaviour
     
     [Header("Set Dynamically")]
     public float health;
-    public float money;
+    public int money;
 
     // Start is called before the first frame update
     void Start()
@@ -40,4 +40,21 @@ public class PlayerData : MonoBehaviour
         Upgrade u = Upgrades.get(type);
         return u.tryUpgrade();
     }
+
+    public bool tryHeal()
+    {
+        
+        if(health < maxHealth)
+        {
+            health++;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+
+    
 }
