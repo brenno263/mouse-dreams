@@ -43,6 +43,7 @@ public class Cheese : MonoBehaviour
         Rigidbody rigid = go.GetComponent<Rigidbody>();
         SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
 
+        go.transform.localScale = transform.localScale;
         rigid.velocity = (Vector3)(-rigid2D.velocity * animationVelocity) + Vector3.forward * animationHeight;
         rigid.angularVelocity = Random.insideUnitCircle.normalized * animationRotation;
         sr.sprite = spriteRenderer.sprite;
