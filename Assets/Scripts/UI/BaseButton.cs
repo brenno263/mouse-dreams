@@ -15,7 +15,7 @@ public class BaseButton : MonoBehaviour
 
     {
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
 
     }
 
@@ -23,7 +23,7 @@ public class BaseButton : MonoBehaviour
 
     {
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
 
     }
 
@@ -31,8 +31,13 @@ public class BaseButton : MonoBehaviour
 
     {
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
 
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
 }
