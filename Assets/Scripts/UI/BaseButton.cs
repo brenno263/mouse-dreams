@@ -35,4 +35,9 @@ public class BaseButton : MonoBehaviour
 
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
 }
