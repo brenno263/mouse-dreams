@@ -1181,11 +1181,7 @@ MonoBehaviour:
   waveData:
   - microWaves:
     - spawnDelayRange: {x: 0.5, y: 1}
-      small: 6
-      medium: 0
-      large: 0
-    - spawnDelayRange: {x: 0, y: 0.2}
-      small: 24
+      small: 4
       medium: 0
       large: 0
   - microWaves: []

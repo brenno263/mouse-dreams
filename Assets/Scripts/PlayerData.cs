@@ -67,4 +67,16 @@ public class PlayerData : MonoBehaviour
         Upgrade u = Upgrades.get(type);
         return u.tryUpgrade();
     }
+
+    public bool tryHeal()
+    {
+        if (Health < baseMaxHealth + getUpgradeLevel(UpgradeType.MaxHealth) * 2);
+        {
+            Health++;
+            return true;
+        }
+        return false;
+    }
+
+    
 }
