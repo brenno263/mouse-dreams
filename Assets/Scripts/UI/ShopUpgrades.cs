@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,11 +14,17 @@ public class ShopUpgrades : MonoBehaviour
     {
         GameManager = GameObject.Find("Game Manager");
         Player = GameManager.GetComponent<PlayerData>();
-        Player.Money = 10000;
+        //Player.Money = 10000;
 
-        // this.GetComponent < Damage.GetComponent<UnityEngine.UI.Button>().text = "beans";
+        
+
+
+        // Damage.GetComponent<UnityEngine.UI.Image>().= "beans";
         
         Debug.Log("l");
+
+        int x = 1;
+        x += 1;
     }
 
     // Update is called once per frame
