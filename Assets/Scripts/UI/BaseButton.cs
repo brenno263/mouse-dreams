@@ -15,7 +15,7 @@ public class BaseButton : MonoBehaviour
 
     {
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
 
     }
 
@@ -23,7 +23,7 @@ public class BaseButton : MonoBehaviour
 
     {
 
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
 
     }
 
@@ -31,7 +31,7 @@ public class BaseButton : MonoBehaviour
 
     {
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
 
     }
 
