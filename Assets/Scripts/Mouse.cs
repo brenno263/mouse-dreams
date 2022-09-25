@@ -11,8 +11,8 @@ public class Mouse : MonoBehaviour
     public float baseProjectileSpeed;
     public float baseProjectileRange;
     public float baseProjectileWidth;
-    public float baseDamage;
-    public float baseProfit;
+    public int baseDamage;
+    public int baseProfit;
 
     public GameObject screamObject;
     public GameObject gameManager;
@@ -20,10 +20,14 @@ public class Mouse : MonoBehaviour
 
     private float _lastProjectileTime;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        
+        Debug.Log("coll");
+        if (col.tag == "Cheese")
+        {
+            Debug.Log("coll cheese");
+            playerData.Health--;
+        }
     }
 
     // Update is called once per frame
@@ -62,8 +66,8 @@ public class Mouse : MonoBehaviour
         scream.maxDistance = baseProjectileRange + playerData.getUpgradeLevel(UpgradeType.Range) * 2;
         scream.onHit = () =>
         {
-            float profit = baseProfit + playerData.getUpgradeLevel(UpgradeType.Profit) * 5;
-            //add the money
+            int profit = baseProfit + (int)playerData.getUpgradeLevel(UpgradeType.Profit) * 5;
+            playerData.Money += profit;
         };
     }
 }
