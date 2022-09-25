@@ -1,17 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ShopUpgrades : MonoBehaviour
 {
     public GameObject GameManager;
     public PlayerData Player;
+    public GameObject Damage;
     // Start is called before the first frame update
     void Start()
     {
-        GameManager = GameObject.Find("Game Manager");
-        Player = GameManager.GetComponent<PlayerData>();
-        Player.money = 10000;
+        //GameManager = GameObject.Find("Game Manager");
+        // Player = GameManager.GetComponent<PlayerData>();
+        //Player.money = 10000;
+
+        // this.GetComponent < Damage.GetComponent<UnityEngine.UI.Button>().text = "beans";
+
+        Debug.Log("l");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     // Update is called once per frame
