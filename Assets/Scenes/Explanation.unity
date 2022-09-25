@@ -522,8 +522,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Meet Shawn. Our little narcaliptic friend has some serious lactose intolerance
     and he needs to...cut the cheese as it were. Can you help him to scream away
-    the tempting delicacies? Use left click to scream at the oncoming cheese, and
-    send it to the waste bin.
+    the tempting delicacies for 8 waves? Use left click to scream at the oncoming
+    cheese, and send it to the waste bin.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
