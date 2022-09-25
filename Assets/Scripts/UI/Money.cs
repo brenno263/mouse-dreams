@@ -20,8 +20,7 @@ public class Money : MonoBehaviour
         GameObject gameManager = GameObject.Find("Game Manager");
         PlayerData playerData = gameManager.GetComponent<PlayerData>();
         playerData.onMoneyChange += setMoney;
-
-        //MoneyObject.GetComponent<TMPro.TextMeshProUGUI>().text = "$" + CurrentMoney.ToString();
+        playerData.Money = playerData.Money;
     }
 
     public void setMoney(int startMoney, int newMoney)
@@ -36,8 +35,9 @@ public class Money : MonoBehaviour
     {
         float t = 0;
         while (t < animTime)
-        { 
-            text.text = "$" + Mathf.Lerp(startMoney, newMoney, t / animTime);
+        {
+            t += Time.deltaTime;
+            text.text = "$" + (int)Mathf.Lerp(startMoney, newMoney, t / animTime);
             yield return null;
         }
     }

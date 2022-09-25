@@ -47,7 +47,7 @@ public class PlayerData : MonoBehaviour
             _money = value;
         }
     }
-    private int _money = 0;
+    private int _money;
 
     // Start is called before the first frame update
     void Start()
@@ -83,15 +83,22 @@ public class PlayerData : MonoBehaviour
         return u.currentLevel;
     }
 
+    public int getUpgradeCost(UpgradeType type)
+    {
+        return (getUpgradeLevel(type) + 1) * 100;
+    }
+
     public bool tryUpgrade(UpgradeType type)
     {
         Upgrade u = Upgrades.get(type);
+        bool success = u.tryUpgrade();
+        if (success) onUpgradesChange(Upgrades.getList());
         return u.tryUpgrade();
     }
 
     public bool tryHeal()
     {
-        if (Health < baseMaxHealth + getUpgradeLevel(UpgradeType.MaxHealth) * 2);
+        if (Health < baseMaxHealth + getUpgradeLevel(UpgradeType.MaxHealth) * 2)
         {
             Health++;
             return true;

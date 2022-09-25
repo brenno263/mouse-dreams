@@ -31,7 +31,7 @@ public class Cheese : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Scream")
+        if (col.tag == "Scream" || col.tag == "Mouse")
         {
             StartCoroutine(deathAnimation());
         }

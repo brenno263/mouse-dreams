@@ -30,143 +30,65 @@ public class ShopUpgrades : MonoBehaviour
             foreach (var pair in texts)
             {
                 int upgradeLevel = Player.getUpgradeLevel(pair.type);
-                pair.text.text = pair.type.ToString() + " " + upgradeLevel + "\n$" + 100 * upgradeLevel;
+                pair.text.text = pair.type.ToString() + " " + upgradeLevel + "\n$" + Player.getUpgradeCost(pair.type);
             }
         });
+        Player.onUpgradesChange(Player.Upgrades.getList());
     }
 
     public bool tryPayment(UpgradeType type)
     {
-
-        int upgradeLevel = Player.getUpgradeLevel(type);
-
-        if ((upgradeLevel * 100) <= Player.Money)
+        int cost = Player.getUpgradeCost(type);
+        if (cost <= Player.Money)
         {
-            Debug.Log("Payment Is Possible");
+            Player.Money -= cost;
             return true;
         }
-        else
-        {
-            Debug.Log("Payment Is Not Possible");
-            return false;
-        }
-
+        return false;
     }
 
     public void UpgradeDamage()
     {
-        if(tryPayment(UpgradeType.Damage) == true)
-        {
-
-            if(Player.tryUpgrade(UpgradeType.Damage) == true)
-            {
-                Debug.Log("Damage Upgrade Is Possible");
-                Player.Money -= Player.getUpgradeLevel(UpgradeType.Damage) * 100;
-            }
-            else
-            {
-                Debug.Log("You could pay but couldn't upgrade!");
-            }
-
-        }
-        
+        if(tryPayment(UpgradeType.Damage)) Player.tryUpgrade(UpgradeType.Damage);
     }
 
     public void UpgradeWidth()
     {
-        if (tryPayment(UpgradeType.Width) == true)
-        {
+        if(tryPayment(UpgradeType.Width)) Player.tryUpgrade(UpgradeType.Width);
 
-            if (Player.tryUpgrade(UpgradeType.Width) == true)
-            {
-                Player.Money -= Player.getUpgradeLevel(UpgradeType.Width) * 100;
-            }
-            else
-            {
-
-            }
-
-        }
     }
 
     public void UpgradeFirerate()
     {
-        if (tryPayment(UpgradeType.FireRate) == true)
-        {
+        if(tryPayment(UpgradeType.FireRate)) Player.tryUpgrade(UpgradeType.FireRate);
 
-            if (Player.tryUpgrade(UpgradeType.FireRate) == true)
-            {
-                Player.Money -= Player.getUpgradeLevel(UpgradeType.FireRate) * 100;
-            }
-            else
-            {
-
-            }
-
-        }
     }
 
     public void UpgradeProfit()
     {
-        if (tryPayment(UpgradeType.Profit) == true)
-        {
+        if(tryPayment(UpgradeType.Profit)) Player.tryUpgrade(UpgradeType.Profit);
 
-            if (Player.tryUpgrade(UpgradeType.Profit) == true)
-            {
-                Player.Money -= Player.getUpgradeLevel(UpgradeType.Profit) * 100;
-            }
-            else
-            {
-
-            }
-
-        }
     }
 
     public void UpgradeRange()
     {
-        if (tryPayment(UpgradeType.Range) == true)
-        {
-
-            if (Player.tryUpgrade(UpgradeType.Range) == true)
-            {
-                Player.Money -= Player.getUpgradeLevel(UpgradeType.Range) * 100;
-            }
-            else
-            {
-
-            }
-
-        }
+        if(tryPayment(UpgradeType.Range)) Player.tryUpgrade(UpgradeType.Range);
     }
 
     public void UpgradeMaxhealth()
     {
-        if (tryPayment(UpgradeType.MaxHealth) == true)
-        {
-
-            if (Player.tryUpgrade(UpgradeType.MaxHealth) == true)
-            {
-                Player.Money -= Player.getUpgradeLevel(UpgradeType.MaxHealth) * 100;
-            }
-            else
-            {
-
-            }
-
-        }
+        if(tryPayment(UpgradeType.MaxHealth)) Player.tryUpgrade(UpgradeType.MaxHealth);
     }
 
     public void Heal()
     {
         if( 100 <= Player.Money)
         {
-            if(Player.tryHeal() == true)
+            if(Player.tryHeal())
             {
                 Player.Money -= 100;
             }
         }
-        
     }
 
 

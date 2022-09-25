@@ -70,7 +70,7 @@ public class Mouse : MonoBehaviour
         scream.maxDistance = baseProjectileRange + playerData.getUpgradeLevel(UpgradeType.Range) * 2;
         scream.onHit = () =>
         {
-            int profit = baseProfit + (int)playerData.getUpgradeLevel(UpgradeType.Profit) * 5;
+            int profit = baseProfit + (int)playerData.getUpgradeLevel(UpgradeType.Profit) * 10;
             playerData.Money += profit;
         };
     }
