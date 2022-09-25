@@ -1,0 +1,25 @@
+.PlayButton {
+    -unity-text-align: middle-center;
+    width: 20%;
+    height: 10%;
+    margin-left: 5%;
+    margin-top: 1px;
+    padding-top: 1px;
+}
+
+.CreditsButton {
+    width: 20%;
+    height: 10%;
+    margin-left: 5%;
+}
+
+.CloseButton {
+    width: 20%;
+    height: 10%;
+    margin-left: 5%;
+}
+
+.MainMenuBackground {
+    height: 447px;
+    background-color: rgba(161, 61, 52, 255);
+}
